@@ -1,0 +1,10 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/api/ai/route": "/api/ai",
+  "/analytics/page": "/analytics",
+  "/admin/chapters/page": "/admin/chapters",
+  "/chapters/page": "/chapters",
+  "/admin/page": "/admin",
+  "/settings/page": "/settings",
+  "/page": "/"
+}

@@ -1,0 +1,51 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isAllowedEmail() {
+      return signedIn() && request.auth.token.email in [
+        'rmanesh011@gmail.com',
+        'veeksha0905@gmail.com',
+        'raghupathyg8@gmail.com',
+        'anuraghu2015@gmail.com'
+      ];
+    }
+
+    match /users/{userId} {
+      allow read, write: if isAllowedEmail() && request.auth.uid == userId;
+    }
+
+    match /subjects/{subjectId} {
+      allow read: if isAllowedEmail() && resource.data.groupId == 'mbbs-family-001';
+      allow create, update: if isAllowedEmail() && request.resource.data.groupId == 'mbbs-family-001';
+      allow delete: if isAllowedEmail() && resource.data.groupId == 'mbbs-family-001';
+    }
+
+    match /chapters/{chapterId} {
+      allow read: if isAllowedEmail() && resource.data.groupId == 'mbbs-family-001';
+      allow create, update: if isAllowedEmail() && request.resource.data.groupId == 'mbbs-family-001';
+      allow delete: if isAllowedEmail() && resource.data.groupId == 'mbbs-family-001';
+    }
+
+    match /study_logs/{logId} {
+      allow read: if isAllowedEmail() && resource.data.groupId == 'mbbs-family-001';
+      allow create, update: if isAllowedEmail() && request.resource.data.groupId == 'mbbs-family-001';
+      allow delete: if isAllowedEmail() && resource.data.groupId == 'mbbs-family-001';
+    }
+
+    match /revision_queue/{itemId} {
+      allow read: if isAllowedEmail() && resource.data.groupId == 'mbbs-family-001';
+      allow create, update: if isAllowedEmail() && request.resource.data.groupId == 'mbbs-family-001';
+      allow delete: if isAllowedEmail() && resource.data.groupId == 'mbbs-family-001';
+    }
+
+    match /analytics/{docId} {
+      allow read: if isAllowedEmail() && resource.data.groupId == 'mbbs-family-001';
+      allow create, update: if isAllowedEmail() && request.resource.data.groupId == 'mbbs-family-001';
+      allow delete: if isAllowedEmail() && resource.data.groupId == 'mbbs-family-001';
+    }
+  }
+}
