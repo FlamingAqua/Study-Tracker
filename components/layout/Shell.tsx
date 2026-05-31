@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils'
 import { useTheme } from '@/hooks/useTheme'
 import { signOutUser } from '@/lib/auth'
 import { useToast } from '@/components/ui/toast'
-
+import Image from "next/image"; 
 const nav = [
   { href: '/', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/chapters', label: 'Chapters', icon: BookOpenCheck },
@@ -31,14 +31,27 @@ export function Shell({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-30 border-b border-white/50 bg-white/70 backdrop-blur dark:border-slate-800 dark:bg-slate-950/70">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 lg:px-8">
           <Link href="/" className="flex items-center gap-3">
-            <div className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-brand-500 to-emerald-500 text-white shadow-soft">
-              <BookOpenCheck className="h-5 w-5" />
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">MBBS Study Tracker</p>
-              <p className="text-xs text-slate-500 dark:text-slate-400">Real-time family accountability</p>
-            </div>
-          </Link>
+  <Image
+    src={
+      theme === "dark"
+        ? "/branding/logo-dark.png"
+        : "/branding/logo-light.png"
+    }
+    alt="MBBS Study Tracker"
+    width={44}
+    height={44}
+    priority
+  />
+
+  <div>
+    <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+      MBBS Study Tracker
+    </p>
+    <p className="text-xs text-slate-500 dark:text-slate-400">
+      Smart Medical Learning Platform
+    </p>
+  </div>
+</Link>
 
           <div className="hidden items-center gap-2 md:flex">
             {nav.map((item) => {

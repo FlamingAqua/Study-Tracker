@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { signInWithGoogle } from '@/lib/auth'
 import { useToast } from '@/components/ui/toast'
-
+import Image from "next/image";
 export function LoginCard() {
   const { toast } = useToast()
 
@@ -19,7 +19,24 @@ export function LoginCard() {
   }
 
   return (
+    
     <div className="mx-auto grid min-h-[calc(100vh-8rem)] max-w-5xl place-items-center">
+      <div className="mb-8 flex flex-col items-center">
+  <Image
+    src="/branding/logo-light.png"
+    alt="MBBS Study Tracker"
+    width={120}
+    height={120}
+  />
+
+  <h1 className="mt-4 text-3xl font-bold">
+    MBBS Study Tracker
+  </h1>
+
+  <p className="text-slate-500">
+    Track • Revise • Succeed
+  </p>
+</div>
       <Card className="w-full max-w-3xl overflow-hidden p-0">
         <div className="grid gap-0 lg:grid-cols-2">
           <div className="bg-gradient-to-br from-brand-600 to-emerald-600 p-8 text-white">
@@ -28,7 +45,7 @@ export function LoginCard() {
               Medical study accountability
             </div>
             <h1 className="mt-5 text-3xl font-bold leading-tight">Track chapters, study hours, revisions, and streaks in real time.</h1>
-            <p className="mt-4 text-sm leading-6 text-white/90">Built for a sister in MBBS and a brother who wants a clear, live view of progress, revision needs, and daily consistency.</p>
+            <p className="mt-4 text-sm leading-6 text-white/90">Built for a clear, live view of progress, revision needs, and daily consistency.</p>
             <div className="mt-8 space-y-3 text-sm">
               <div className="flex items-center gap-2"><ShieldCheck className="h-4 w-4" /> Authorized Google accounts only</div>
               <div className="flex items-center gap-2"><ShieldCheck className="h-4 w-4" /> Realtime Firestore sync</div>

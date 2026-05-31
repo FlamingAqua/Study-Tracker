@@ -20,6 +20,8 @@ import type { Chapter, RevisionItem } from '@/lib/types'
 import { GROUP_ID } from '@/lib/constants'
 import { StudyTimer } from '@/components/dashboard/StudyTimer'
 import AIAssistant from "@/components/ai/AIAssistant";
+import Image from "next/image";
+import { useTheme } from '@/hooks/useTheme'
 const statusOptions = [
   { value: 'all', label: 'All statuses' },
   { value: 'not_started', label: 'Not started' },
@@ -127,17 +129,36 @@ export function Dashboard() {
   if (error) {
     return <Card><p className="text-rose-600">{error}</p></Card>
   }
-
+ const { theme, toggleTheme } = useTheme() 
   return (
     <div id="dashboard-export" className="space-y-6">
       <section className="grid gap-4 lg:grid-cols-[1.5fr,1fr]">
         <Card>
           <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <Badge>Group {GROUP_ID}</Badge>
-              <h1 className="mt-3 text-3xl font-bold tracking-tight">Study progress dashboard</h1>
-              <p className="mt-2 max-w-2xl text-sm text-slate-500 dark:text-slate-400">Realtime view. Updates appear instantly when a chapter is changed on mobile.</p>
-            </div>
+            <div className="flex items-center gap-4">
+  <Image
+    src={
+      theme === "dark"
+        ? "/branding/logo-dark.png"
+        : "/branding/logo-light.png"
+    }
+    alt="MBBS Study Tracker"
+    width={64}
+    height={64}
+  />
+
+  <div>
+    <Badge>Group {GROUP_ID}</Badge>
+
+    <h1 className="text-3xl font-bold tracking-tight">
+      Study Progress Dashboard
+    </h1>
+
+    <p className="text-sm text-slate-500">
+      Track your MBBS journey.
+    </p>
+  </div>
+</div>
             <div className="grid grid-cols-2 gap-3 sm:min-w-[260px]">
               <div className="rounded-2xl bg-slate-50 p-4 dark:bg-slate-800/60">
                 <p className="text-xs text-slate-500">Streak</p>

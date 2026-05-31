@@ -10,7 +10,7 @@ import type { User } from 'firebase/auth'
 import { useRouter, usePathname } from "next/navigation";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
-
+import Image from "next/image";
 export function AuthGate({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -60,8 +60,22 @@ export function AuthGate({ children }: { children: React.ReactNode }) {
   }, [toast])
 
   if (loading) {
-    return <div className="grid min-h-[70vh] place-items-center text-slate-500">Loading secure session…</div>
-  }
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center">
+      <Image
+        src="/branding/logo-light.png"
+        alt="Loading"
+        width={120}
+        height={120}
+        className="animate-pulse"
+      />
+
+      <p className="mt-4 text-slate-500">
+        Loading Study Tracker...
+      </p>
+    </div>
+  )
+}
 
   if (!user) return <LoginCard />
   
