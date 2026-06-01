@@ -1,4 +1,4 @@
-import { initializeApp, getApps, getApp } from 'firebase/app'
+import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from 'firebase/auth'
 import { collection, getFirestore } from 'firebase/firestore'
 
@@ -26,3 +26,4 @@ export const collections = {
   revisionQueue: collection(db, 'revision_queue'),
   analytics: collection(db, 'analytics'),
 }
+export default app;

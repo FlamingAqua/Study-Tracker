@@ -2,14 +2,14 @@
 
 import { onAuthStateChanged } from 'firebase/auth'
 import { useEffect, useState } from 'react'
-import { auth } from "../../firebase/firebase";
+import { auth } from "@/lib/firebase";
 import { isAllowedUser, upsertUserProfile } from '@/lib/auth'
 import { LoginCard } from '@/components/auth/LoginCard'
 import { useToast } from '@/components/ui/toast'
 import type { User } from 'firebase/auth'
 import { useRouter, usePathname } from "next/navigation";
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "../../firebase/firebase";
+import { db } from "@/lib/firebase";
 import Image from "next/image";
 export function AuthGate({ children }: { children: React.ReactNode }) {
   const router = useRouter();

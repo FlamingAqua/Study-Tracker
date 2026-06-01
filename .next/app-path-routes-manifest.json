@@ -1,0 +1,11 @@
+{
+  "/api/ai/route": "/api/ai",
+  "/favicon.ico/route": "/favicon.ico",
+  "/_not-found/page": "/_not-found",
+  "/admin/chapters/page": "/admin/chapters",
+  "/analytics/page": "/analytics",
+  "/chapters/page": "/chapters",
+  "/admin/page": "/admin",
+  "/page": "/",
+  "/settings/page": "/settings"
+}
