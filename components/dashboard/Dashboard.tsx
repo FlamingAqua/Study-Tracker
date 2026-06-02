@@ -19,7 +19,6 @@ import { enableBrowserNotifications, sendBrowserNotification } from '@/lib/notif
 import type { Chapter, RevisionItem } from '@/lib/types'
 import { GROUP_ID } from '@/lib/constants'
 import { StudyTimer } from '@/components/dashboard/StudyTimer'
-import AIAssistant from "@/components/ai/AIAssistant";
 import Image from "next/image";
 import { useTheme } from '@/hooks/useTheme'
 const statusOptions = [
@@ -277,12 +276,7 @@ export function Dashboard() {
             <Button type="button" className="bg-white text-slate-900 hover:bg-slate-100 dark:bg-slate-900 dark:text-slate-100" onClick={() => { setSelectedChapterId(''); setNotes(''); setTomorrowTarget(''); setProgress('25'); setHours('1'); }}><TimerReset className="h-4 w-4" /><span className="ml-2">Reset</span></Button>
           </div>
         </Card>
-
-        <Card>
-  <AIAssistant />
-</Card>
       </section>
-
       <section className="grid gap-4 xl:grid-cols-[1.1fr,0.9fr]">
         <Card>
           <div className="flex items-center justify-between gap-3">

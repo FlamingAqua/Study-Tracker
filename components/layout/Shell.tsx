@@ -34,8 +34,8 @@ export function Shell({ children }: { children: React.ReactNode }) {
   <Image
     src={
       theme === "dark"
-        ? "/branding/logo-dark.png"
-        : "/branding/logo-light.png"
+        ? "/Branding/logo-dark.png"
+        : "/Branding/logo-light.png"
     }
     alt="MBBS Study Tracker"
     width={44}

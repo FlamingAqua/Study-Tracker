@@ -63,7 +63,7 @@ export function AuthGate({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
       <Image
-        src="/branding/logo-light.png"
+        src="/Branding/logo-light.png"
         alt="Loading"
         width={120}
         height={120}
