@@ -23,7 +23,7 @@ export function LoginCard() {
     <div className="mx-auto grid min-h-[calc(100vh-8rem)] max-w-5xl place-items-center">
       <div className="mb-8 flex flex-col items-center">
   <Image
-    src="/branding/logo-light.png"
+    src="/Branding/logo-light.png"
     alt="MBBS Study Tracker"
     width={120}
     height={120}
